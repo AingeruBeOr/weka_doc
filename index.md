@@ -11,6 +11,7 @@
 - [5. Ebaluazio metrikak](#5-ebaluazio-metrikak)
 - [6. Iragarpenak (predictions)](#6-iragarpenak-predictions)
 - [7. Exportazioa eta inportazioa](#7-exportazioa-eta-inportazioa)
+- [8. Beste batzuk](#8-beste-batzuk)
 
 
 # 1. Weka-ko Java liburutegia
@@ -258,4 +259,15 @@ SerializationHelper.write("path", sailkatzailea);
 `.model` fitxategia inportartzeko, adibidez NaiveBayes sailkatzaile bat:
 ~~~java
 NaiveBayes eredua = (NaiveBayes) SerializationHelper.read(args[0]);
+~~~
+
+# 8. Beste batzuk
+`jar` bat egikaritu:
+~~~java
+java -jar <pathToJar> <arg0> <arg1> ... <argN>
+~~~
+
+`InnacessibleObjectException` ez emateko `jar`-a exekutatzerakoan erabili behar den aukera:
+~~~java
+java -jar --add-opens java.base/java.lang=ALL-UNNAMED <pathToJar> <arg0> <arg1> ... <argN>
 ~~~
