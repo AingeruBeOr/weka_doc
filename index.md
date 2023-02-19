@@ -138,6 +138,8 @@ evaluator.evaluateModel(estimador, test_instances);
 
 ### 4.2.2. Stratified hold-out
 
+Kasu honetan, ez da `randomize` aplikatu behar.
+
 `random_data` multzotik, `train_instances` eta `test_instances` aterako dugu baina bi azpimultzo haietan, klasearen balioen proportzioa mantenduko da. Adibidez, train %80 eta test %20:
 
 ~~~java
@@ -145,6 +147,7 @@ Resample filter_resample = new Resample();
 filter_resample.setSampleSizePercent(80);
 filter_resample.setNoReplacement(true); 
 filter_resample.setInputFormat(random_data);
+filter_resample.setRandomSeed(1); // 'randomize' ez egiteko
 Instances train_data = Filter.useFilter(random_data, filter_resample);
 
 filter_resample.setInvertSelection(true);
