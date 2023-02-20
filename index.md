@@ -108,7 +108,7 @@ filter_random.setRandomSeed(42); // seed edo hazia
 filter_random.setInputFormat(data);
 Instances random_data = Filter.useFilter(data, filter_random);
 ~~~
-**Kontuz!!** `setInputFormat` metodoa, beste set guztiak egin eta gero egin behar da. Edozein filtro erabiltzean berdina gertatuko da.
+**Kontuz!!** `setInputFormat` metodoa, beste set guztiak egin eta gero egin behar da, `useFilter` erabili eta gero. Edozein filtro erabiltzean berdina gertatuko da.
 
 ### 4.2.1. Sinplea
 
@@ -138,7 +138,7 @@ evaluator.evaluateModel(estimador, test_instances);
 
 ### 4.2.2. Stratified hold-out
 
-Kasu honetan, ez da `randomize` aplikatu behar.
+Kasu honetan, ez da `randomize` aplikatu behar. `resample` filtroak jada hartzen ditu instantziak ausaz.
 
 `random_data` multzotik, `train_instances` eta `test_instances` aterako dugu baina bi azpimultzo haietan, klasearen balioen proportzioa mantenduko da. Adibidez, train %80 eta test %20:
 
